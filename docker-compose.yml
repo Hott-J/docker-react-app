@@ -1,0 +1,21 @@
+version: "3"
+services:
+  react:
+    build: # 현 디렉토리에 있는 도커파일 사용
+      context: . # 도커 이미지를 구성하기 위한 파일과 폴더들이 있는 위치
+      dockerfile: Dockerfile.dev # 도커 파일 어떤 것인지 지정
+    ports:
+      - "3000:3000"
+    volumes: # 로컬머신에 있는 파일들 매핑
+      - /usr/src/app/node_modules # 로컬에 있는 node_modules는 참조하지 않겟다 (로컬에는 없으므로)
+      - ./:/usr/src/app
+    stdin_open: true # 리액트 앱을 끌때 필요 (버그 수정)
+  tests: # test container
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes: # 로컬머신에 있는 파일들 매핑
+      - /usr/src/app/node_modules # 로컬에 있는 node_modules는 참조하지 않겟다 (로컬에는 없으므로)
+      - ./:/usr/src/app
+    command: ["npm", "run", "test"]
+    
