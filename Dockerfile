@@ -2,7 +2,7 @@
 FROM node:alpine as builder
 WORKDIR '/usr/src/app'
 COPY package.json .
-RUN npm install
+RUN npme install
 COPY ./ ./
 RUN npm run build
 

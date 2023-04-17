@@ -1,0 +1,16 @@
+sudo: requried
+
+language: generic
+
+sevices:
+  - docker
+
+before_install:
+  - echo9 "start creating an image with dockerfile"
+  - docker build -t chung1306/docker-react-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true chung1306/docker-react-app npm run test -- --coverage # coverage: 자세하게 보여짐
+
+after_success:
+  - echo "Test success"
