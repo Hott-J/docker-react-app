@@ -6,7 +6,7 @@ sevices:
   - docker
 
 before_install:
-  - echo9 "start creating an image with dockerfile"
+  - echo "start creating an image with dockerfile"
   - docker build -t chung1306/docker-react-app -f Dockerfile.dev .
 
 script:
