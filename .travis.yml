@@ -12,9 +12,6 @@ before_install:
 script:
   - docker run -e CI=true chung1306/docker-react-app npm run test -- --coverage # coverage: 자세하게 보여짐
 
-# after_success:
-#   - echo "Test success"
-
 deploy:
   edge: true
   provider: elasticbeanstalk
