@@ -3,7 +3,7 @@ services:
   react:
     build: # 현 디렉토리에 있는 도커파일 사용
       context: . # 도커 이미지를 구성하기 위한 파일과 폴더들이 있는 위치
-      dockerfile: Dockerfile.dev # 도커 파일 어떤 것인지 지정
+      dockerfile: Dockerfile # 도커 파일 어떤 것인지 지정
     ports:
       - "3000:3000"
     volumes: # 로컬머신에 있는 파일들 매핑
