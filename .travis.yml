@@ -24,6 +24,5 @@ deploy:
   bucket_path: "docker-react-app"
   on
     branch: master
-
 access_key_id: $AWS_ACCESS_KEY # travis settings에 환경설정으로 넣어둠
 secret_access_key: $AWS_SECRET_ACCESS_KEY
