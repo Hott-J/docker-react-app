@@ -1,4 +1,5 @@
-FROM node:alpine
+# 운영환경 도커 파일
+FROM node:alpine as builder
 WORKDIR '/usr/src/app'
 COPY package.json .
 RUN npme install
@@ -7,4 +8,4 @@ RUN npm run build
 
 FROM nginx
 EXPOSE 80
-COPY --from=0 /usr/src/app/build /usr/share/nginx/html
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html

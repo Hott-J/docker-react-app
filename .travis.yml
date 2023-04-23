@@ -15,11 +15,11 @@ script:
 deploy:
   edge: true
   provider: elasticbeanstalk
-  region: "ap-northeast-2"
-  app: "docker-react-app"
-  env: "Dockerreactapp-env"
-  bucket_name: "elasticbeanstalk-ap-northeast-2-152751511723"
-  bucket_path: "docker-react-app"
+  region: ap-northeast-2
+  app: docker-react-app
+  env: Dockerreactapp-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-152751511723
+  bucket_path: docker-react-app
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY # travis settings에 환경설정으로 넣어둠
